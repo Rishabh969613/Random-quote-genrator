@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="random">
+        <div class="first">
+            <h1 id="font"> <i>Quote of the Day</i></h1>
+            <p class="text" id="sachin">"     Money   won't   create   success , 
+        the   freedom   to   make   it   will .    "</p>
+        <p id="suraj">
+
+        </p>
+
+        
+        </div>
+        <hr>
+        <div class="second">
+            <button class="but">
+                Fav 💟
+            </button>
+            <button class="but" id="quote" onClick="newquote()">
+                New Quote
+            </button>
+
+        </div>
+    </div>
+    <script>
+       
+       async function newquote(){
+  
+        fetch('https://dummyjson.com/quotes/random')
+          .then(res => res.json())
+          .then( (data) => {document.getElementById("sachin").textContent = `"${data.quote}"`; 
+          document.getElementById("suraj").textContent = ` "${data.author}"`});
+
+}
+    </script>
+</body>
+
+</html>
